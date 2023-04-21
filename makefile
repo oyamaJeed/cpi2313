@@ -1,0 +1,20 @@
+TARGET := display.o
+SRC := $(TARGET).c
+OBJ := $(TARGET).o
+
+
+CFLAGS := -g -Wall
+LFLAGS := -lm -pthread
+CC := gcc $(CFLAGS) $(LFLAGS)
+
+
+all : $(TARGET)
+
+
+$(TARGET): $(OBJ) 
+	$(CC) -o $@ $^ $(LFLAGS)
+.c.o:
+	$(CC) -c $^
+clean:
+	rm -f $(TARGET) $(OBJ)
+# Comm. Protocol Inst. Lesson
