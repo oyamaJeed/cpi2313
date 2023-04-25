@@ -1,20 +1,14 @@
-TARGET := display.o
+TARGET := display
 SRC := $(TARGET).c
 OBJ := $(TARGET).o
-
-
+DO := libdlink.so
 CFLAGS := -g -Wall
-LFLAGS := -lm -pthread
-CC := gcc $(CFLAGS) $(LFLAGS)
-
-
+CC := gcc $(CFLAGS)
 all : $(TARGET)
-
-
 $(TARGET): $(OBJ) 
-	$(CC) -o $@ $^ $(LFLAGS)
+	$(CC) -shared $(SRC) -fPIC -o $(DO)
 .c.o:
 	$(CC) -c $^
 clean:
 	rm -f $(TARGET) $(OBJ)
-# Comm. Protocol Inst. Lesson
+	rm -f $(TARGET) $(DO)
