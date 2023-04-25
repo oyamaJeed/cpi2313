@@ -5,7 +5,7 @@ OBJ := $(TARGET).o
 
 CFLAGS := -g -Wall
 LFLAGS := -lm -pthread
-CC := gcc $(CFLAGS) $(LFLAGS)
+CC := gcc $(CFLAGS)
 
 
 all : $(TARGET)
